@@ -1,0 +1,32 @@
+<%- include('partials/header') %>
+<h1>Lista użytkowników</h1>
+<% if (users.length > 0) { %>
+<table border="1">
+    <thead>
+        <tr>
+            <th>L.p</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Email</th>
+            <th>Phone No.</th>
+            <th colspan='2'>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% for(let i=0; i < users.length; i++) {%>
+            <tr>
+                <td><%= i + 1 %></td>
+                <td><%= users[i].first_name %></td>
+                <td><%= users[i].last_name %></td>
+                <td><%= users[i].email %></td>
+                <td><%= users[i].phone %></td>
+                <td><a href="#<%= users[i].id %>">Detail</a></td>
+                <td><a href="#<%= users[i].id %>">Edit</a></td>
+            </tr>
+        <% } %>
+    </tbody>
+</table>
+<%} else { %>
+    <h2>Brak użytkowników</h2>
+<% } %>
+<%- include('partials/footer') %>
